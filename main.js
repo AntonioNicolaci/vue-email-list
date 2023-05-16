@@ -3,23 +3,23 @@ const appEmailList = Vue.createApp({
         return {
             dataServer: [],
             dataPreLoad: [],
-            showList: false,
-        }
-    },
-    methods: {
-        getEmailJSON(element){
-            for (let index = 0; index < 10; index++) {
-                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-                    .then(response => element[index] = response.data.response);
-            }
-        }
+            showList: false,        }
     },
     computed: {
-        setDataPreLoad() {
+        postEmailJSON(){
+            for (let index = 0; index < 10; index++) {
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                    .then(response => this. dataServer[index] = response.data.response);
+            };
+        },
+        preEmailJSON() {
             for (let index = 0; index < 10; index++) {
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                     .then(response => this.dataPreLoad[index] = response.data.response);
-            }
+            };
+            setInterval(() => {
+                this.showList = true;
+            }, 1300);
         },
     },
 }).mount('#app')
