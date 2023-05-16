@@ -14,6 +14,15 @@
                 {{email}}
             </div>
         </template>
+        <button @click="showList = !showList">BBB</button>
+        <div v-show="showList === true">
+            <template  v-for="preEmail in dataPreLoad">
+                <div>
+                    {{preEmail}}
+                </div>
+            </template>
+        </div>
+        
         
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
